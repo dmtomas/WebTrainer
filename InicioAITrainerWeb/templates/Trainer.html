@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>TuEntrevista.com</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  {% load static %}
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/team/robotito.png' %}" rel="icon">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+    <link hrPero de naef="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{%static 'assets/css/style.css' %}" rel="stylesheet">
+   <style>
+   * {
+  margin: 0px;
+  padding: 0px;
+}
+
+.box {
+  width: 300px;
+  margin: 50px auto;
+  background: #00bfb6;
+  padding-top: 10px;
+  text-align: center;
+  font-weight: 900;
+  color: #fff;
+  font-family: arial;
+  position: absolute;
+  left: 6%;
+  z-index: 7;
+  top: 20%;
+}
+.sb3:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid #00bfb6;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #00bfb6;
+  border-bottom: 10px solid transparent;
+  left: 19px;
+  bottom: -19px;
+}
+
+
+   #entrenador{
+   width: 10%;
+   height: 20%;
+   position: absolute;
+   z-index: 6;
+   left: 1%;
+   top: 35%;
+   }
+   #palabras{
+   padding-left: 5%;
+   padding-right: 5%;
+   }
+        #test{
+                position: absolute;
+                background-color: #009970;
+                z-index: 9;
+      background-size: cover;
+      padding-top: 10%;
+      padding-bottom: 10%;
+      padding-right: 28%;
+      padding-left: 28%;
+      display: none;
+      opacity: 0.95;
+    }
+    #vid2{
+    display: none;
+    }
+   </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+  <!-- =======================================================
+  * Template Name: Bethany - v4.0.1
+  * Template URL: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+    <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container">
+      <div class="header-container d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <h1 class="text-light"><a href="{% url 'index' %}"><span>TuEntrevista.com</span></a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto" href="{% url 'index'%}">Inicio</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'index'%}">CV</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'index'%}">Carta</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'curso'%}">Curso</a></li>
+            <li><a class="nav-link scrollto active" href="{%url 'AI'%}">Trainer</a></li>
+            <li><a class="nav-link scrollto" href="{%url 'out'%}">Salir</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+      </div><!-- End Header Container -->
+    </div>
+  </header><!-- End Header -->
+
+
+    <main>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <center>
+            <img src="{% static 'assets/img/team/robotito.png' %}" id="entrenador">
+            <div class="jumbotron" id="test">
+  <h1 id="mensaje" class="display-4"></h1>
+                <h1> Felicitaciones!!! Segui practicando</h1>
+</div>
+        <div id="new" class="box sb3"></div>
+
+        <h4 id="palabras">Bienvenido al entrenador personal, clickea en grabar y finalizar cada vez que termines con una pregunta
+            y abajo podes ver como lo hiciste.</h4>
+
+        <video id="vid1" controls></video>
+        <video id="vid2" controls></video>
+        <p><button id="btnStart" class="btn btn-outline-success">START RECORDING</button>
+        <button id="btnStop" class="btn btn-outline-danger">STOP RECORDING</button></p>
+
+        </center>
+        <script>
+        var tag = document.createElement("p");
+        var text = document.createTextNode("¿Por que queres trabajar acá?");
+        tag.appendChild(text);
+        var element = document.getElementById("new");
+        element.appendChild(tag);
+
+        document.querySelector('#btnStart').onclick = (e) => {
+        clearTimeout(timeout);
+        $("#vid2").fadeOut(200);
+        setTimeout(function(){$("#vid1").fadeIn(200);},210);
+
+};
+
+        let timeout;
+        document.querySelector('#btnStop').onclick = (e) => {
+
+        $("#vid1").fadeOut(200);
+        setTimeout(function(){
+        $("#vid2").fadeIn(200);;
+     }, 550);
+        clearTimeout(timeout);
+        setTimeout(() => {
+         $("#test").fadeIn(500);
+
+         timeout = setTimeout(() => {
+
+        $("#test").fadeOut(500);
+        }, 2000);
+        }, 1000);
+
+ };
+
+</script>
+        <!-- could save to canvas and do image manipulation and saving too -->
+    </main>
+    <script>
+        let frases = ["¿Cuál es tu mayor fortaleza?", "¿Tu mayor debilidad?", "¿Por qué eres la persona adecuada para este puesto?", "Háblame de ti"];
+
+        let constraintObj = {
+            audio: true,
+            video: {
+                facingMode: "user",
+                width: { min: 480, ideal: 640, max: 1280 },
+                height: { min: 360, ideal: 480, max: 720 }
+            }
+        };
+        // width: 640, height: 480  -- preference only
+        // facingMode: {exact: "user"}
+        // facingMode: "environment"
+
+        //handle older browsers that might implement getUserMedia in some way
+        if (navigator.mediaDevices === undefined) {
+            navigator.mediaDevices = {};
+            navigator.mediaDevices.getUserMedia = function(constraintObj) {
+                let getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+                if (!getUserMedia) {
+                    return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
+                }
+                return new Promise(function(resolve, reject) {
+                    getUserMedia.call(navigator, constraintObj, resolve, reject);
+                });
+            }
+        }else{
+            navigator.mediaDevices.enumerateDevices()
+            .then(devices => {
+                devices.forEach(device=>{
+                    console.log(device.kind.toUpperCase(), device.label);
+                    //, device.deviceId
+                })
+            })
+            .catch(err=>{
+                console.log(err.name, err.message);
+            })
+        }
+
+        navigator.mediaDevices.getUserMedia(constraintObj)
+        .then(function(mediaStreamObj) {
+            //connect the media stream to the first video element
+            let video = document.querySelector('video');
+
+            video.echoCancellation = "true";
+            video.noiseSuppression = "true";
+            video.volume = 0;
+
+            if ("srcObject" in video) {
+                video.srcObject = mediaStreamObj;
+            } else {
+                //old version
+                video.src = window.URL.createObjectURL(mediaStreamObj);
+            }
+
+            video.onloadedmetadata = function(ev) {
+                //show in the video element what is being captured by the webcam
+                video.play();
+
+            };
+
+            //add listeners for saving video/audio
+            let start = document.getElementById('btnStart');
+            let stop = document.getElementById('btnStop');
+            let vidSave = document.getElementById('vid2');
+            let mediaRecorder = new MediaRecorder(mediaStreamObj);
+            let chunks = [];
+
+            start.addEventListener('click', (ev)=>{
+                mediaRecorder.start();
+                console.log(mediaRecorder.state);
+            })
+            stop.addEventListener('click', (ev)=>{
+
+                mediaRecorder.stop();
+                console.log(mediaRecorder.state);
+
+            });
+            mediaRecorder.ondataavailable = function(ev) {
+                chunks.push(ev.data);
+            }
+            mediaRecorder.onstop = (ev)=>{
+                let blob = new Blob(chunks, { 'type' : 'video/mp4;' });
+                chunks = [];
+                let videoURL = window.URL.createObjectURL(blob);
+                vidSave.src = videoURL;
+            async function predict(video){
+            const model = await tf.loadLayersModel('{% static 'WebAI/model.json' %}');
+        // do prediction
+
+        const audio = mediaStreamObj;
+        var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        var analyser = audioCtx.createAnalyser();
+        source = audioCtx.createMediaStreamSource(audio);
+        source.connect(analyser);
+        analyser.fftSize = 2048;
+        var dataArray = new Uint8Array(3367);
+
+setTimeout(() => {
+        datos = analyser.getByteFrequencyData(dataArray);
+        console.log(dataArray);
+        value = tf.tensor([dataArray]).reshape([-1, 259, 13]);
+        const result = model.predict([value]).dataSync();
+        mostrar = (100 * result[0]).toFixed(2)
+        document.getElementById("mensaje").innerHTML = "Tu puntuación es " + mostrar;
+        document.getElementById("new").innerHTML = frases[Math.floor(Math.random() * frases.length)];
+
+}, 500);
+        }
+        setTimeout(() => {
+                predict();
+                }, 200);
+            }
+        })
+        .catch(function(err) {
+            console.log(err.name, err.message);
+        });
+
+        /*********************************
+        getUserMedia returns a Promise
+        resolve - returns a MediaStream Object
+        reject returns one of the following errors
+        AbortError - generic unknown cause
+        NotAllowedError (SecurityError) - user rejected permissions
+        NotFoundError - missing media track
+        NotReadableError - user permissions given but hardware/OS error
+        OverconstrainedError - constraint video settings preventing
+        TypeError - audio: false, video: false
+        *********************************/
+    </script>
+<!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>TuEntrevista.com</h3>
+            <p>
+              Brandsen<br>
+              Buenos Aires<br>
+              Argentina <br><br>
+              <strong>Telefono:</strong> +54 2223439261<br>
+              <strong>Email:</strong> tomy_crosta@hotmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Links Utiles</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Sobre nosotros</a></li>
+            </ul>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Unete a nosotros</h4>
+            <p>Para consultas sobre volverse vendedor u otra posición remitirse al mail ofrecido.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>TuEntrevista.com</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+</body>
+</html>

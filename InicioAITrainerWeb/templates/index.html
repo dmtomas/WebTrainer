@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>TuEntrevista.com</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  {% load static %}
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/team/robotito.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{%static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Bethany - v4.0.1
+  * Template URL: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container">
+      <div class="header-container d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <h1 class="text-light"><a href="{% url 'index' %}"><span>TuEntrevista.com</span></a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
+            <li><a class="nav-link scrollto" href="#about">Sobre Nosotros</a></li>
+            <li><a class="nav-link scrollto" href="#team">Equipo</a></li>
+
+            <li><a class="getstarted scrollto" href="#contact">Iniciar/Crear cuenta</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+      </div><!-- End Header Container -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+      <h1>Mejora tus habilidades verbales con TuEntrevista.com</h1>
+      <h2>Soy una red neuronal que entrenó escuchando durante cientos de horas a los mejores oradores
+      solo para mejorar tus habilidades linguisticas.</h2>
+      <a href="#contact" class="btn-get-started scrollto">Iniciar Sesión/Crear Cuenta</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <h2>Todo sobre TuEntrevista.com</h2>
+            <h3>Aprender a responder a nuevas situaciones suele ser algo dificil y uno aprende principalmente de
+            la practica. Esto puede hacer que se pierdan muchas entrevistas de trabajo y oportunidades.</h3>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+            <p>
+              Nuestro equipo vió este problema y decidió construir a alguien que esta dispuesto a ayudar
+            a entrenar para las entrevistas de trabajo todo el tiempo y que tiene los conocimientos necesarios
+            para ayudarte.
+            </p>
+
+          <p>Pero ahí no termina la utilidad de Marvin, el tambien te puede ayudar entre otras cosas a:</p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Hablar en publico.</li>
+              <li><i class="ri-check-double-line"></i> Mejorar tus conversaciones con personas.</li>
+              <li><i class="ri-check-double-line"></i> Motivar a tus empleados a trabajar mejor.</li>
+            </ul>
+            <p class="font-italic">
+              Esto se debe a que aproximadamente el 90% de las conversaciones son no verbales y Marvin es
+              un especialista en ellas.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="section-title" data-aos="fade-right">
+              <h2>Equipo</h2>
+              <p>Nuestro equipo esta conformado por la mejor inteligencia artificial.</p>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="row">
+
+              <div class="col-lg-6">
+                <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="pic"><img src="{% static 'assets/img/team/robotito.png' %}" class="img-fluid" alt=""></div>
+                  <div class="member-info">
+                    <h4>Marvin</h4>
+                    <span>Entrenador personal</span>
+                    <p>Forzada a escuchar cientos de horas de entrevistas Marvin te quiere ayudar a preparar
+                    tu entrevista.</p>
+                    <div class="social">
+                      <a href=""><i class="ri-twitter-fill"></i></a>
+                      <a href=""><i class="ri-facebook-fill"></i></a>
+                      <a href=""><i class="ri-instagram-fill"></i></a>
+                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+<div class="container">
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <h2>Iniciar Sesión</h2>
+
+            <form method="POST">
+ {% csrf_token %}
+  <div class="form-group">
+
+    <label for="exampleInputEmail1">Nombre de usuario</label>
+    <input name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Usuario">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Contraseña</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="password">
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">No cerrar sesión</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Entrar</button>
+</form>
+
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+            <h2>Crear cuenta</h2>
+
+            <form method="POST">
+              {% csrf_token %}
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Usuario</label> <br>
+      {{form.username}}
+    </div>
+    <div class="form-group col-md-6">
+      <label>Email</label><br>
+      {{form.email}}
+      <label>Contraseña</label><br>
+      {{form.password1}}
+      <label>Confirmar Contraseña</label><br>
+      {{form.password2}} <br>
+      {{form.error}}
+
+    </div>
+  </div>
+  <div class="form-group">
+  <button type="submit" class="btn btn-primary">Crear Cuenta</button>
+  </div>
+</form>
+
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>TuEntrevista.com</h3>
+            <p>
+              Brandsen<br>
+              Buenos Aires<br>
+              Argentina <br><br>
+              <strong>Telefono:</strong> +54 2223439261<br>
+              <strong>Email:</strong> tomy_crosta@hotmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Links Utiles</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Sobre nosotros</a></li>
+            </ul>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Unete a nosotros</h4>
+            <p>Para consultas sobre volverse vendedor u otra posición remitirse al mail ofrecido.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>TuEntrevista.com</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

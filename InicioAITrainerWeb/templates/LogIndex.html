@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>TuEntrevista.com</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  {% load static %}
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/team/robotito.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{%static 'assets/css/style.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/Pricecss/style2.css' %}" rel="stylesheet">
+<style>
+  input[type=checkbox] {
+  display: none;
+}
+
+.container img {
+  transition: transform 0.25s ease;
+  cursor: zoom-in;
+}
+
+input[type=checkbox]:checked ~ label > img {
+  transform: scale(3);
+  cursor: zoom-out;
+}
+</style>
+  <!-- =======================================================
+  * Template Name: Bethany - v4.0.1
+  * Template URL: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container">
+      <div class="header-container d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <h1 class="text-light"><a href="{% url 'index' %}"><span>TuEntrevista.com</span></a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto" href="{% url 'index'%}">Inicio</a></li>
+            <li><a class="nav-link scrollto" href="#about">CV</a></li>
+            <li><a class="nav-link scrollto" href="#team">Carta</a></li>
+            {% if premium == None %}
+            <li><a class="nav-link scrollto" href="#pricing">Curso</a></li>
+            <li><a class="nav-link scrollto" href="#pricing">Trainer</a></li>
+            {% else %}
+            <li><a class="nav-link scrollto" href="{% url 'curso'%}">Curso</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'AI'%}">Trainer</a></li>
+            {% endif %}
+            {% if premium == None %}
+            <li class="dropdown"><a href="#"><span>Canjear Codigo</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li>
+                  <form method="POST" action="{% url 'pay'%}">
+                    {% csrf_token %}
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">Codigo</label>
+                    <input name="code" type="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar codigo">
+                  </div>
+              <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+                </li>
+              </ul>
+            </li>
+            {% endif %}
+            <li><a class="nav-link scrollto" href="{%url 'out'%}">Salir</a></li>
+            {% if premium == None %}
+            <li><a class="getstarted scrollto" href="#pricing">Comprar</a></li>
+            {% endif %}
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+      </div><!-- End Header Container -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+      <h1>Bienvenido a TuEntrevista.com</h1>
+      <h2>Esperamos que te gusten nuestros cursos, recomendaciones y el entrenador virtual.</h2>
+      {% if premium == None %}
+      <a href="#pricing" class="btn-get-started scrollto">Comprar</a>
+      {% endif %}
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <h2>Crea tu CV</h2>
+            <h3>El curriculum es lo primero que el empleador va a ver. Antes de verlo no te conoce ni sabe como sos
+              por lo que es importante de una forma rapida y concisa explicar lo mas posible para llegar a la entrevista
+              .</h3>
+            <center>
+            <div class="container">
+  <input type="checkbox" id="zoomCheck">
+  <label for="zoomCheck">
+    <img src="{%static 'assets/img/cv.jpeg' %}">
+  </label>
+</div>
+            </center>
+          </div>
+          <ul class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+            <p>
+              Consejos para el curriculum:
+            </p>
+           <!-- Example single danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Consejos para armar tu  curriculum.
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" data-toggle="collapse" href="#ConsejosGenerales" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Consejos Generales</a>
+    <a class="dropdown-item" data-toggle="collapse" href="#Estructura" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Estructura</a>
+    <a class="dropdown-item" data-toggle="collapse" href="#InformacionPersonal" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Información personal</a>
+    <a class="dropdown-item" data-toggle="collapse" href="#Perfil" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Perfil</a>
+    <a class="dropdown-item" data-toggle="collapse" href="#Educacion" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Educación</a>
+    <a class="dropdown-item" data-toggle="collapse" href="#ExperienciaLaboral" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Experiencia Laboral</a>
+    <a class="dropdown-item" data-toggle="collapse" href="#Proyectos" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Proyectos</a>
+    <a class="dropdown-item" data-toggle="collapse" href="#Otros" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Otros</a>
+
+
+  </div>
+</div>
+
+                           <!-- Consejos Generales -->
+            <div class="collapse multi-collapse" id="ConsejosGenerales">
+      <div class="card card-body">
+        <h1>Consejos Generales.</h1>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Intenta escribir entre 1 y 2 hojas.</li>
+              <p>Es normal que la persona que lea tu CV tenga que leer muchos mas, por esta razon los Curriculums
+              que sean demasiado largos podrian ser pasados por alto y muchos puntos claves se podrian perder por
+              tanta información.</p>
+              <li><i class="ri-check-double-line"></i> Lo mas visual posible.</li>
+              <p>Para expresar que nivel de dominio tenes sobre diferentes categorias intenta usar estrellas u otro
+              metodo que atraiga a la vista, de esta forma tu Curriculum va a resaltar mas y va a ser mas facil de leer.</p>
+              <li><i class="ri-check-double-line"></i> No mentir.</li>
+              <p> Aunque es verdad que mentir sobre tus habilidades aumenta las chances de que te contraten, tambien
+              hace que la entrevista se haga mucho mas dificil ya que el empleador espera mas de lo que podes
+                ofrecer.</p>
+              <li><i class="ri-check-double-line"></i> Mantener un orden.</li>
+              <p>El orden de tu curriculum tiene que ser dictaminado por tus fortalezas. Por ejemplo, si sos un alumno
+              y no tenes mucha experiencia laboral, el principio tiene que contener tus estudios y cursos hechos
+              ordenados segun la importancia que tengan para el puesto. Por el otro lado si no tenes muchos estudios
+              pero tenes mucha experiencia laboral, tu curriculum tiene que estar principalmente centrado en esto.</p>
+              <li><i class="ri-check-double-line"></i> Contar sobre tus aptitudes.</li>
+              <p>Como se dijo al principio, la persona que lee tu curriculum no sabe nada sobre vos. Un lugar
+              que especifique sobre algun Hobby o como trabajas con diferentes personas es altamente recomendado.</p>
+              <li><i class="ri-check-double-line"></i> Usar una plantilla.</li>
+              <p>Usar plantillas hace que el curriculum tome un aspecto mas profecional y ayuda a visualizar
+                como ordenar las cosas</p>
+              <li><i class="ri-check-double-line"></i> Aprender Latex/Overleaf.</li>
+              <p>Latex y Overleaf son procesadores de texto igual que Word, estos terminan siendo muy comodos de usar,
+              son muy versatiles para cambiar cosas y hay millones de plantillas gratis subidas a internet.</p>
+            </ul>
+      </div>
+            </div>
+
+                          <!-- Estructura -->
+            <div class="collapse multi-collapse" id="Estructura">
+      <div class="card card-body">
+        <h1>Estructura.</h1>
+            <p class="font-italic">
+              <ul>
+                <h6>La estructura en general depende de que queres acentuar, para un recien egresado
+                  por ejemplo la estructura general es:</h6>
+              <li><i class="ri-check-double-line"></i> Información personal</li>
+              <li><i class="ri-check-double-line"></i> Perfil</li>
+              <li><i class="ri-check-double-line"></i> Estudios.</li>
+              <li><i class="ri-check-double-line"></i> Experiencia laboral.</li>
+              <li><i class="ri-check-double-line"></i> Premios/recomendaciones/logros/proyectos.</li>
+              <li><i class="ri-check-double-line"></i> Hobbys/ informacion extra util para el puesto.</li>
+
+      </ul>
+        <br>
+      <p>En caso de querer enfatizar mas la experiencia laboral, esta se debera colocar esta antes que los estudios.</p>
+      </div>
+            </div>
+
+
+                                       <!-- Información personal -->
+            <div class="collapse multi-collapse" id="InformacionPersonal">
+      <div class="card card-body">
+        <h1>Información personal.</h1>
+            <p class="font-italic">
+              <ul>
+                <h6>Esta seccion tiene que contener la siguiente información:</h6>
+              <li><i class="ri-check-double-line"></i> Nombre y apellido</li>
+              <li><i class="ri-check-double-line"></i> Numero de telefono y E-mail</li>
+              <li><i class="ri-check-double-line"></i> link a pagina de linkedin o mas información tuya.</li>
+              <li><i class="ri-check-double-line"></i> Otros datos necesarios para el puesto como alguna documentación.</li>
+      </ul>
+
+      </div>
+            </div>
+
+
+            <!-- Perfil -->
+            <div class="collapse multi-collapse" id="Perfil">
+      <div class="card card-body">
+        <h1>Perfil.</h1>
+            <p class="font-italic">
+              Esta seccion sirve para explicar en un pequeño parrafo quien sos, que queres hacer y que
+              podes ofrecerle a la compañia. No deberia tener mucho mas de 2 o 3 renglones!!!
+            </p>
+
+      </div>
+            </div>
+
+
+            <!-- Educacion -->
+            <div class="collapse multi-collapse" id="Educacion">
+      <div class="card card-body">
+        <h1>Educación.</h1>
+            <p class="font-italic">
+              Esta parte es especialmente importante de enfatizar si no tenes demasiada experiencia laboral.
+              Tenes que escribir los cursos y titulos relevantes al trabajo junto a una pequeña descripción y
+              2 o 3 cosas que quieras remarcar del titulo por ejemplo el promedio.
+            </p>
+
+      </div>
+            </div>
+
+
+            <!-- Experiencia Laboral -->
+            <div class="collapse multi-collapse" id="ExperienciaLaboral">
+      <div class="card card-body">
+        <h1>Experiencia Laboral.</h1>
+            <p class="font-italic">
+              En esta sección tienes que escribir los trabajos que realizaste relacionados al puesto al cual estas
+              aplicando. Bajo el titulo del trabajo tambien tenes que colocar el nombre exacto del puesto
+              y cuales son las responsabilidades que tenias en este.
+            </p>
+        <p>Mientras seas conciso cuanto mas puedas explicar mejor.</p>
+
+      </div>
+            </div>
+
+            <!-- Proyectos -->
+            <div class="collapse multi-collapse" id="Proyectos">
+      <div class="card card-body">
+        <h1>Proyectos y actividades extracurriculares.</h1>
+            <p class="font-italic">
+              Colocar actividades realizadas como por ejemplo voluntariados, clubes o proyectos relacionados al
+              puesto de trabajo.
+            </p>
+
+      </div>
+            </div>
+
+            <!-- Otros -->
+            <div class="collapse multi-collapse" id="Otros">
+      <div class="card card-body">
+        <h1>Otros</h1>
+            <p class="font-italic">
+              Finalmente en esta seccion podes colocar otras habilidades que no pudiste mensionar en los anteriores
+              parrafos pero que son relevantes como por ejemplo:
+            </p>
+        <ul>
+              <li><i class="ri-check-double-line"></i> Otros idiomas hablados.</li>
+              <li><i class="ri-check-double-line"></i> Programas que sabes usar.</li>
+              <li><i class="ri-check-double-line"></i> Maquinaria con la que estas relacionado.</li>
+
+        </ul>
+        <br>
+        <p>Estos detalles en general es para compartir un poco mas como sos y mostrar que realmente estas
+        comprometido pero si crees que alguna de estas habilidades es muy importante, se puede colocar esta seccion
+        un poco antes.</p>
+
+      </div>
+            </div>
+<br>
+            <br>
+            <p>
+              Acordate que la apariencia del curriculum es muy importante y que tiene que ser facil de ver todo, nosotros
+              recomendamos editar plantillas de <a href="https://es.overleaf.com/gallery/tagged/cv" target="_blank" rel="noopener noreferrer">Plantillas de overleaf.</a> </p>
+
+          </ul>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <br>
+      <br>
+      <br>
+      <br>
+      <center><h1>PROXIMAMENTE!!!</h1></center>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </section><!-- End Team Section -->
+
+  </main><!-- End #main -->
+
+  {% if premium == None %}
+
+  <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+
+          <div class=" col-lg-4 col-md-6 mt-4 mt-lg-0">
+            <div class="box">
+              <h3>semana</h3>
+              <h4><sup>US$</sup>1.35<span> / semana</span></h4>
+              <ul>
+                <li>Entrenador robot 24/7.</li>
+                <li>Curso para mejorar.</li>
+                <li>Consejos para crear tu CV.</li>
+                <li>Consejos para crear tu carta de presentación.</li>
+              </ul>
+
+              <!-- Set up a container element for the button -->
+    <div id="paypal-button-container-1"></div>
+
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AULwfMaanNbKMJtA4CsZy7kVelDQzbNYySexo9hti00qdLAXlXWm-EAqcHTi4rdMXyoQJk-W5a1oAgLE&currency=USD" data-sdk-integration-source="button-factory"></script>
+
+    <script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '1.35'
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                var text = "full week";
+                    $.ajax({
+                    type: "POST",
+                    url: '{{ 'month/' }}',
+                    data: { csrfmiddlewaretoken: '{{ csrf_token }}', text: text },
+                    success: function callback(response){
+                    console.log(response);
+            }
+});
+                });
+            }
+
+
+        }).render('#paypal-button-container-1');
+    </script>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+            <div class="box featured">
+              <h3>mes</h3>
+              <h4><sup>US$</sup>3.45<span> / mes</span></h4>
+              <ul>
+                <li>Entrenador robot 24/7.</li>
+                <li>Curso para mejorar.</li>
+                <li>Consejos para crear tu CV.</li>
+                <li>Consejos para crear tu carta de presentación.</li>
+              </ul>
+              <!-- Set up a container element for the button -->
+    <div id="paypal-button-container-3"></div>
+
+    <!-- Include the PayPal JavaScript SDK -->
+
+    <script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '3.45'
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    alert('La compra de ' + details.payer.name.given_name + ' fue un exito! Reiniciar para ver los cambios.');
+
+                    var text = "full month";
+                    $.ajax({
+                    type: "POST",
+                    url: '{{ 'month/' }}',
+                    data: { csrfmiddlewaretoken: '{{ csrf_token }}', text: text },
+                    success: function callback(response){
+                    console.log(response);
+            }
+});
+                });
+            }
+
+
+        }).render('#paypal-button-container-3');
+
+    </script>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+            <div class="box">
+              <h3>año</h3>
+              <h4><sup>US$</sup>22.00<span> / año</span></h4>
+              <ul>
+                <li>Entrenador robot 24/7.</li>
+                <li>Curso para mejorar.</li>
+                <li>Consejos para crear tu CV.</li>
+                <li>Consejos para crear tu carta de presentación.</li>
+              </ul>
+              <!-- Set up a container element for the button -->
+    <div id="paypal-button-container-20"></div>
+
+    <!-- Include the PayPal JavaScript SDK -->
+
+    <script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '22.00'
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                var text = "full year";
+                    $.ajax({
+                    type: "POST",
+                    url: '{{ 'month/' }}',
+                    data: { csrfmiddlewaretoken: '{{ csrf_token }}', text: text },
+                    success: function callback(response){
+                    console.log(response);
+            }
+});
+                });
+            }
+
+
+        }).render('#paypal-button-container-20');
+
+    </script>
+            </div>
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </section><!-- End Pricing Section -->
+  {% endif %}
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>TuEntrevista.com</h3>
+            <p>
+              Brandsen<br>
+              Buenos Aires<br>
+              Argentina <br><br>
+              <strong>Telefono:</strong> +54 2223439261<br>
+              <strong>Email:</strong> tomy_crosta@hotmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Links Utiles</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Sobre nosotros</a></li>
+            </ul>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Unete a nosotros</h4>
+            <p>Para consultas sobre volverse vendedor u otra posición remitirse al mail ofrecido.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>TuEntrevista.com</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
