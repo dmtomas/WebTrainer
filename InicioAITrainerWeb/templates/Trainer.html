@@ -32,7 +32,7 @@
   width: 300px;
   margin: 50px auto;
   background: #00bfb6;
-  padding-top: 10px;
+  padding-top: 15px;
   text-align: center;
   font-weight: 900;
   color: #fff;
@@ -40,7 +40,7 @@
   position: absolute;
   left: 6%;
   z-index: 7;
-  top: 20%;
+  top: 6%;
 }
 .sb3:before {
   content: "";
@@ -62,7 +62,7 @@
    position: absolute;
    z-index: 6;
    left: 1%;
-   top: 35%;
+   top: 20%;
    }
    #palabras{
    padding-left: 5%;
@@ -81,16 +81,35 @@
       opacity: 0.95;
     }
     #vid1{
-    width: 550px;
-    border-radius: 10px;
+    width: 47%;
+    border-radius: 3%;
     overflow: hidden;
     }
     #vid2{
     display: none;
-    width: 550px;
-    border-radius: 10px;
+    width: 47%;
+    border-radius: 3%;
     overflow: hidden;
     }
+    #btnStart{
+    position: absolute;
+    right: 11%;
+    top: 16%;
+    width: 13%;
+    }
+    #btnStop{
+    position: absolute;
+    right: 11%;
+    top: 23%;
+    width: 13%;
+    }
+    #next{
+    position: absolute;
+    left: 1%;
+    top: 42%;
+    width: 25%;
+    }
+
    </style>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
   <!-- =======================================================
@@ -145,9 +164,10 @@
 
         <video id="vid1" controls></video>
         <video id="vid2" controls></video>
-        <p><button id="btnStart" class="btn btn-outline-success">START RECORDING</button>
-        <button id="btnStop" class="btn btn-outline-danger">STOP RECORDING</button></p>
-            <h4 id="palabras">Bienvenido al entrenador persona, clickea en grabar y finalizar cada vez que termines con una pregunta.</h4>
+        <p><button id="btnStart" class="btn btn-outline-success">Empezar</button>
+        <button id="btnStop" class="btn btn-outline-danger">Detener</button></p>
+        <button id="next" class="btn btn-outline-success">Proxima pregunta</button></p>
+        <h4 id="palabras">Bienvenido al entrenador persona, clickea en grabar y finalizar cada vez que termines con una pregunta.</h4>
 
         </center>
         <script>
@@ -183,12 +203,16 @@
 
  };
 
+
+
 </script>
         <!-- could save to canvas and do image manipulation and saving too -->
     </main>
     <script>
         let frases = ["¿Cuál es tu mayor fortaleza?", "¿Tu mayor debilidad?", "¿Por qué eres la persona adecuada para este puesto?", "Háblame de ti"];
-
+        document.querySelector('#next').onclick = (e) => {
+        document.getElementById("new").innerHTML = frases[Math.floor(Math.random() * frases.length)];
+        }
         let constraintObj = {
             audio: true,
             video: {
