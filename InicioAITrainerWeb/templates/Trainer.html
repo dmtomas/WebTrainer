@@ -80,8 +80,16 @@
       display: none;
       opacity: 0.95;
     }
+    #vid1{
+    width: 550px;
+    border-radius: 10px;
+    overflow: hidden;
+    }
     #vid2{
     display: none;
+    width: 550px;
+    border-radius: 10px;
+    overflow: hidden;
     }
    </style>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
@@ -135,13 +143,11 @@
 </div>
         <div id="new" class="box sb3"></div>
 
-        <h4 id="palabras">Bienvenido al entrenador personal, clickea en grabar y finalizar cada vez que termines con una pregunta
-            y abajo podes ver como lo hiciste.</h4>
-
         <video id="vid1" controls></video>
         <video id="vid2" controls></video>
         <p><button id="btnStart" class="btn btn-outline-success">START RECORDING</button>
         <button id="btnStop" class="btn btn-outline-danger">STOP RECORDING</button></p>
+            <h4 id="palabras">Bienvenido al entrenador persona, clickea en grabar y finalizar cada vez que termines con una pregunta.</h4>
 
         </center>
         <script>
@@ -172,7 +178,7 @@
          timeout = setTimeout(() => {
 
         $("#test").fadeOut(500);
-        }, 2000);
+        }, 3000);
         }, 1000);
 
  };
@@ -288,7 +294,7 @@ setTimeout(() => {
         document.getElementById("mensaje").innerHTML = "Tu puntuación es " + mostrar;
         document.getElementById("new").innerHTML = frases[Math.floor(Math.random() * frases.length)];
 
-}, 500);
+}, 700);
         }
         setTimeout(() => {
                 predict();
